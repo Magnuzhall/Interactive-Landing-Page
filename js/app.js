@@ -1,19 +1,34 @@
-//Get all sections page sections
+//Get all page sections
 const AllSections = document.querySelectorAll('section');
 
 //Select the <ul> by its id
 const navBar = document.getElementById('navbar__list');
 
-//Create all the <li> elements adding the class already being used in the css doc and link with the corresponding id
-const navElements = (element) => {
-    const navElement = `<li><a class="menu__link" href="#${element.id}">${element.id}</a></li>`;
-    navBar.insertAdjacentHTML('beforeend', navElement);
+
+
+//Create iterable array
+const navLength = [1, 2, 3, 4, 5];
+
+//Function that will create all the nav <li> elements
+const addNavElements = () => {
+    //Iterate through the array
+    for(let i = 1; i < navLength.length; i++) {
+        //Create 4 new <li> elements
+        const newElement = document.createElement('li');
+        //Add text
+        newElement.innerHTML = 'Section  ' + [i];
+        //Add class
+        newElement.classList.add('menu__link');
+        //Add the href to each of the sections
+        newElement.addEventListener('click', () => {
+            window.location.href = '#section' + [i];
+        });
+        //Insert the new elements in the nav bar
+        navBar.insertAdjacentElement('beforeend', newElement);
+    }
 };
 
-//Add each nav bar <li> element to the corresponding section in the array
-AllSections.forEach(element => {
-    navElements(element);
-});
+addNavElements();
 
 //Add highlighting on scroll using IntersectionObserver
 //Add options to improve the user scroll experience by setting the top & bot root margins
