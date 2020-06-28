@@ -4,8 +4,6 @@ const AllSections = document.querySelectorAll('section');
 //Select the <ul> by its id
 const navBar = document.getElementById('navbar__list');
 
-
-
 //Create iterable array
 const navLength = [1, 2, 3, 4, 5];
 
@@ -19,6 +17,8 @@ const addNavElements = () => {
         newElement.innerHTML = 'Section  ' + [i];
         //Add class
         newElement.classList.add('menu__link');
+        //Add id
+        newElement.setAttribute('id', 'navbar__element' + [i]);
         //Add the href to each of the sections
         newElement.addEventListener('click', () => {
             window.location.href = '#section' + [i];
@@ -59,6 +59,82 @@ const observer = new IntersectionObserver(function(entries, observer) {
 AllSections.forEach(section => {
     observer.observe(section);
 });
+
+//Navbar section 1 observer
+const navbarMenuOne = document.querySelector('#navbar__element1');
+const targetOne = document.querySelector('#section1');
+
+const navbarObserver = new IntersectionObserver(function(entries, navbarObserver) {
+    entries.forEach(entry => {
+        console.log(entry);
+        if (entry.isIntersecting) {
+            navbarMenuOne.classList.add('active__navbar');
+        } else {
+            if (!entry.isIntersecting) {
+                navbarMenuOne.classList.remove('active__navbar');
+            }
+        }
+    });
+}, options);
+
+navbarObserver.observe(targetOne);
+
+//Navbar section 2 observer
+const navbarMenuTwo = document.querySelector('#navbar__element2');
+const targetTwo = document.querySelector('#section2');
+
+const navbarObserverTwo = new IntersectionObserver(function(entries, navbarObserver) {
+    entries.forEach(entry => {
+        console.log(entry);
+        if (entry.isIntersecting) {
+            navbarMenuTwo.classList.add('active__navbar');
+        } else {
+            if (!entry.isIntersecting) {
+                navbarMenuTwo.classList.remove('active__navbar');
+            }
+        }
+    });
+}, options);
+
+navbarObserverTwo.observe(targetTwo);
+
+//Navbar section 3 observer
+const navbarMenuThree = document.querySelector('#navbar__element3');
+const targetThree = document.querySelector('#section3');
+
+const navbarObserverThree = new IntersectionObserver(function(entries, navbarObserver) {
+    entries.forEach(entry => {
+        console.log(entry);
+        if (entry.isIntersecting) {
+            navbarMenuThree.classList.add('active__navbar');
+        } else {
+            if (!entry.isIntersecting) {
+                navbarMenuThree.classList.remove('active__navbar');
+            }
+        }
+    });
+}, options);
+
+navbarObserverThree.observe(targetThree);
+
+//Navbar section 4 observer
+const navbarMenuFour = document.querySelector('#navbar__element4');
+const targetFour = document.querySelector('#section4');
+
+const navbarObserverFour = new IntersectionObserver(function(entries, navbarObserver) {
+    entries.forEach(entry => {
+        console.log(entry);
+        if (entry.isIntersecting) {
+            navbarMenuFour.classList.add('active__navbar');
+        } else {
+            if (!entry.isIntersecting) {
+                navbarMenuFour.classList.remove('active__navbar');
+            }
+        }
+    });
+}, options);
+
+navbarObserverFour.observe(targetFour);
 
 //Create a back to top text in the footer
 const pageFooter = document.querySelector('.page__footer');
