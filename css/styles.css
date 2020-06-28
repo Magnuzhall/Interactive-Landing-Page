@@ -56,9 +56,6 @@ section {
 /* ---- Module Rules ---- */
 
 /* Navigation Styles*/
-
-
-
 .navbar__menu {
     display: flex;
     align-items: center;
@@ -71,7 +68,7 @@ section {
 }
 
 .navbar__menu li {
-    display: inline-block;
+    display: inline-flex
 }
 
 /* Style the nav bar and li's */
@@ -93,7 +90,7 @@ section {
 }
 
 .active__navbar {
-    background: purple;
+    background: rgb(10, 175, 216);
 }
 
 /* Header Styles */
